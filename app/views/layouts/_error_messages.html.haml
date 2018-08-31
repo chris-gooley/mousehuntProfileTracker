@@ -1,0 +1,10 @@
+.row
+  .col.s12.item-errors{style: errors.blank? ? 'display:none' : ''}
+    .card-panel.red.darken-3.white-text
+      %h5 The following fields need to be fixed
+      %ul
+        - if errors.present?
+          - errors.each do |error, message|
+            %li
+              = "#{error.to_s.humanize} #{message}"
+

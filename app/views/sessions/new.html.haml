@@ -1,0 +1,31 @@
+.row
+  .col.m7.s12
+    %h4 Welcome to the Mousehunter Tracker
+    %p.text-highlight
+      Currently looking for maintainers! I no longer play Mousehunt and would like to stop hosting this service. If you are interested in taking over, send me an email at <a href="mailto:admin@mousehunter-tracker.com">admin@mousehunter-tracker.com</a>.
+    %p This little app is designed to track your <a href="https://mousehuntgame.com">Mousehunt</a> progress and show it on pretty graphs. It tracks your gold and points progress, as well as mice breeds caught and a few other things. Once you signup, the app will start scanning your publicly accessible profile every 2 hours and graph the result (it'll take a bit of time before the graphs start looking pretty though). If you run into any issues or have any suggestions, feel free to flick me a message at <a href="mailto:admin@mousehunter-tracker.com">admin@mousehunter-tracker.com</a>.
+    %p For those who might be concerned that using mousehunter-tracker will get you banned. I have spoken to the Mousehunt developers (Hitgrab) and they have given their permission for this app to scrape their website (mousehuntgame.com). You will not get banned for using it.
+    %p Thanks, I hope you like it.
+    %p= link_to 'Sign up here', signup_path, class: 'btn green'
+
+  .col.m4.s12.offset-m1
+    %h5 Login
+    = form_tag login_path, method: :post, builder: StandardFormBuilder, html: { id: 'signup-form' } do
+      .input-field
+        = text_field_tag :email
+        = label_tag :email
+
+      .input-field
+        = password_field_tag :password
+        = label_tag :password
+
+      = submit_tag :login, class: 'btn right'
+    = link_to 'Forgot your password?', forgot_password_path
+    %br.clearfix
+
+
+
+.row
+  .col.m7.s12= render partial: 'layouts/change_log'
+
+

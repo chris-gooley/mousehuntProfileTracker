@@ -1,0 +1,62 @@
+require 'open-uri'
+
+images = [{name: "Meadow", link:"https://www.mousehuntgame.com/images/environments/a441eb078698da69ef2765983f4b5912.jpg?cv=225"},
+{name: "Town of Gnawnia", link:"https://www.mousehuntgame.com/images/environments/231c9b4d583f98c365efcbbd50fddb76.jpg?cv=225"},
+{name: "Windmill", link:"https://www.mousehuntgame.com/images/environments/15623ee3d1cecd303d677e35507b6bb1.jpg?cv=225"},
+{name: "Harbour", link:"https://www.mousehuntgame.com/images/environments/299b09242d8fc78cbf208c3241a84f47.jpg?cv=225"},
+{name: "Mountain", link:"https://www.mousehuntgame.com/images/environments/dee680c95caf9f8d4f4c8f62d9559c55.jpg?cv=225"},
+{name: "Slushy Shoreline", link:"https://www.mousehuntgame.com/images/environments/83a58b48b1fdbde6f3b14e8a40e04e1f.jpg?cv=225"},
+{name: "Great Winter Hunt", link:"https://www.mousehuntgame.com/images/environments/7555ac35a6b19ee0468c6bda19ea4a19.jpg?cv=225"},
+{name: "King's Arms", link:"https://www.mousehuntgame.com/images/environments/85b1ef8a33eb3738f99ff6b6ef031b0b.jpg?cv=225"},
+{name: "Tournament Hall", link:"https://www.mousehuntgame.com/images/environments/bcef5388cc1ef35263ab0ce4dc25775a.jpg?cv=225"},
+{name: "King's Gauntlet", link:"https://www.mousehuntgame.com/images/environments/c6b49b20bb646760bf6c0ed3068f1295.jpg?cv=225"},
+{name: "Calm Clearing", link:"https://www.mousehuntgame.com/images/environments/7767dffc1f500872477a503c3860a0af.jpg?cv=225"},
+{name: "Great Gnarled Tree", link:"https://www.mousehuntgame.com/images/environments/ea24e3c7e0318a5ab098139848e43f36.jpg?cv=225"},
+{name: "Lagoon", link:"https://www.mousehuntgame.com/images/environments/cfbb19c90443073ff9d14b282c157c90.jpg?cv=225"},
+{name: "Laboratory", link:"https://www.mousehuntgame.com/images/environments/34167a825f66074fcc1c2f01018815b9.jpg?cv=225"},
+{name: "Town of Digby", link:"https://www.mousehuntgame.com/images/environments/82cc4bd9e80af9968d04e3f353386c39_v2.jpg?cv=225"},
+{name: "Mousoleum", link:"https://www.mousehuntgame.com/images/environments/90f0aedc563b86ae9f791f8f1d54e65d.jpg?cv=225"},
+{name: "Bazaar", link:"https://www.mousehuntgame.com/images/environments/52aa280a0470bf2bbf4fcc47248df387.jpg?cv=225"},
+{name: "Training Grounds", link:"https://www.mousehuntgame.com/images/environments/c4a76adf8dce0b63bc51985821a7df8f.jpg?cv=225"},
+{name: "Dojo", link:"https://www.mousehuntgame.com/images/environments/04009d0da06626fec6dde7fbca554e04.jpg?cv=225"},
+{name: "Meditation Room", link:"https://www.mousehuntgame.com/images/environments/6abcf1fec4d87fe316c596ddf40c486e.jpg?cv=225"},
+{name: "Pinnacle Chamber", link:"https://www.mousehuntgame.com/images/environments/87926031d29e6aefe3fb7ed6c9b26634.jpg?cv=225"},
+{name: "Catacombs", link:"https://www.mousehuntgame.com/images/environments/6c90bd8fb85fbbfecb1b15eb191e61a7.jpg?cv=225"},
+{name: "Forbidden Grove", link:"https://www.mousehuntgame.com/images/environments/2b093e36c3aadc67b59abc740f194149.jpg?cv=225"},
+{name: "Acolyte Realm", link:"https://www.mousehuntgame.com/images/environments/a72f9c94f446eef321d92f25c8617c62.jpg?cv=225"},
+{name: "Cape Clawed", link:"https://www.mousehuntgame.com/images/environments/49323d2e691deb0336089fa0be3b9a80.jpg?cv=225"},
+{name: "Elub Shore", link:"https://www.mousehuntgame.com/images/environments/35e41632eb8740769d7c3b4fce87d08e.jpg?cv=225"},
+{name: "Nerg Plains", link:"https://www.mousehuntgame.com/images/environments/e543aa29b9ddbf8e53b614243c502b37.jpg?cv=225"},
+{name: "Derr Dunes", link:"https://www.mousehuntgame.com/images/environments/e2203bda2c17140902aed0a0f8da1515.jpg?cv=225"},
+{name: "Jungle of Dread", link:"https://www.mousehuntgame.com/images/environments/cf9945d59760e180f3c0d77d6f065b71_v2.jpg?cv=225"},
+{name: "Dracano", link:"https://www.mousehuntgame.com/images/environments/eefec52373c6cb93bcd55909cb477e47.jpg?cv=225"},
+{name: "Balack's Cove", link:"https://www.mousehuntgame.com/images/environments/13f8a9edffc65a052d84dd08d1a0a32b.jpg?cv=225"},
+{name: "Claw Shot City", link:"https://www.mousehuntgame.com/images/environments/d3ace11874ce22faf7b2801b0c57f529.jpg?cv=225"},
+{name: "Gnawnian Express Station", link:"https://www.mousehuntgame.com/images/environments/dbbb6f5114d44fefa3870271a8a4b0fe.jpg?cv=225"},
+{name: "Fort Rox", link:"https://www.mousehuntgame.com/images/environments/f8fa3cfb0ba47234604e790c0edc51aa.jpg?cv=225"},
+{name: "S.S. Huntington III", link:"https://www.mousehuntgame.com/images/environments/2b8b5004d762ad05d5e84a932244a6e0.jpg?cv=225"},
+{name: "Iceberg", link:"https://www.mousehuntgame.com/images/environments/11939d9ac30a58d4b923915834764ff0.jpg?cv=225"},
+{name: "Seasonal Garden", link:"https://www.mousehuntgame.com/images/environments/49b4059a6789ec3b24b7489be9143c4a.jpg?cv=225"},
+{name: "Zugzwang's Tower", link:"https://www.mousehuntgame.com/images/environments/08a64629c0ca285a411df8330ede2c11.jpg?cv=225"},
+{name: "Crystal Library", link:"https://www.mousehuntgame.com/images/environments/3b829c45549a8f953bc96ee34eff66dd.jpg?cv=225"},
+{name: "Sunken City", link:"https://www.mousehuntgame.com/images/environments/76c845e1cb95684581b12f3c3b1c1c8e.jpg?cv=225"},
+{name: "Fiery Warpath", link:"https://www.mousehuntgame.com/images/environments/50c140c25725c308d70f14ef96279ab6.jpg?cv=225"},
+{name: "Muridae Market", link:"https://www.mousehuntgame.com/images/environments/423b8ccbc5788e599320f20f6c20a478.jpg?cv=225"},
+{name: "Twisted Garden", link:"https://www.mousehuntgame.com/images/environments/1f78a597ffbc9e1db4dd312d2a510e2d.jpg?cv=225"},
+{name: "Cursed City", link:"https://www.mousehuntgame.com/images/environments/aa370a7e75c3baa6db51967c17f6bc90.jpg?cv=225"},
+{name: "Sand Crypts", link:"https://www.mousehuntgame.com/images/environments/4e8967692df16dfbb489e9acf672ec4a.jpg?cv=225"},
+{name: "Fungal Cavern", link:"https://www.mousehuntgame.com/images/environments/8e2c435efa191b1948f38525664c96ff.jpg?cv=225"},
+{name: "Labyrinth", link:"https://www.mousehuntgame.com/images/environments/fde0d810fea36c1bb16af988fa014a1f.jpg?cv=225"},
+{name: "Zokor", link:"https://www.mousehuntgame.com/images/environments/4439cd721150faa28ff83f8e390dd766.jpg?cv=225"},
+{name: "Gnawnia Rift", link:"https://www.mousehuntgame.com/images/environments/632aa670b5358a0bbc2d2c4ef982c6ad.jpg?cv=225"},
+{name: "Burroughs Rift", link:"https://www.mousehuntgame.com/images/environments/818f04f2bda88795c67cc6ff227615bb.jpg?cv=225"},
+{name: "Whisker Woods Rift", link:"https://www.mousehuntgame.com/images/environments/d5e2069ed820740389a2f4cebbc5657c.jpg?cv=225"},
+{name: "Furoma Rift", link:"https://www.mousehuntgame.com/images/environments/67fca617353d1d951d24abea92bce506.jpg?cv=225"}]
+
+images.each do |image|
+  filename = image[:name].downcase.gsub(/[\s'"]/i,'')
+  puts "Getting #{filename}"
+  open("../app/assets/images/locations/#{filename}.jpg", 'wb') do |file|
+    file << open(image[:link]).read
+  end
+end

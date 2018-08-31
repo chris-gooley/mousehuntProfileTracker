@@ -1,0 +1,63 @@
+%dl.right
+  %dt Email
+  %dd= current_hunter.email
+  %dt Hunter ID
+  %dd= current_hunter.profile_id
+  %dt Profile Records
+  %dd= current_hunter.profile_records.count
+  %dt Last Scanned
+  %dd= time_ago_in_words current_hunter.last_scanned
+
+
+.row.clearfix
+  .col.s12
+    %ul.tabs
+      %li.tab.col.s4
+        %a.active{:href => "#profile"} Profile
+      %li.tab.col.s4
+        %a{:href => "#progress"} Your Progress
+      %li.tab.col.s4
+        %a{:href => "#team"} Team
+
+#profile.col.s12= render partial: 'profile'
+
+#progress.col.s12= render partial: 'progress'
+
+#team.col.s12= render partial: 'team'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

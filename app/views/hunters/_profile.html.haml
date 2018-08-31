@@ -1,0 +1,71 @@
+.row
+  .col.m4.s12
+    %h5 Status
+    %table.striped
+      %tbody
+        %tr
+          %td Title
+          %td= "#{@last_record.title} (#{@last_record.title_progress}%)"
+        %tr
+          %td Team
+          %td= current_hunter.team
+        %tr
+          %td Points
+          %td= number_with_delimiter @last_record.points
+        %tr
+          %td Gold
+          %td= number_with_delimiter @last_record.gold
+  .col.m4.s12
+    %h5 Hunting
+    %table.striped
+      %tbody
+        %tr
+          %td Horn Calls
+          %td= number_with_delimiter @last_record.horn_calls
+        %tr
+          %td Breeds Caught
+          %td= @last_record.breeds_caught
+        %tr
+          %td Breeds Total
+          %td= @last_record.breeds_total
+        %tr
+          %td Event Breeds Caught
+          %td= @last_record.event_breeds_caught
+        %tr
+          %td Event Breeds Total
+          %td= @last_record.event_breeds_total
+        %tr
+          %td Mice Caught
+          %td= number_with_delimiter @last_record.mice_caught
+
+  .col.m4.s12
+    %h5 Setup
+    %table.striped
+      %tbody
+        %tr
+          %td Location
+          %td= @last_record.location
+        %tr
+          %td Region
+          %td= @last_record.region
+        %tr
+          %td Trap
+          %td= @last_record.trap
+        %tr
+          %td Base
+          %td= @last_record.base
+        %tr
+          %td Charm
+          %td= @last_record.charm
+        %tr
+          %td Bait
+          %td= "#{number_with_delimiter(@last_record.bait_amount)} pieces of #{@last_record.bait_name}"
+        %tr
+          %td Trap Power
+          %td= @last_record.trap_power
+        %tr
+          %td Trap Luck
+          %td= @last_record.trap_luck
+
+.row
+  .col.m7.s12= render partial: 'layouts/change_log'

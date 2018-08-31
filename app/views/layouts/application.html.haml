@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %title Mousehunter Tracker
+    = csrf_meta_tags
+
+    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
+    %link{:href => "/apple-touch-icon-57x57.png", :rel => "apple-touch-icon", :sizes => "57x57"}/
+    %link{:href => "/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
+    %link{:href => "/apple-touch-icon-76x76.png", :rel => "apple-touch-icon", :sizes => "76x76"}/
+    %link{:href => "/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
+    %link{:href => "/apple-touch-icon-120x120.png", :rel => "apple-touch-icon", :sizes => "120x120"}/
+    %link{:href => "/apple-touch-icon-144x144.png", :rel => "apple-touch-icon", :sizes => "144x144"}/
+    %link{:href => "/apple-touch-icon-152x152.png", :rel => "apple-touch-icon", :sizes => "152x152"}/
+    %link{:href => "/apple-touch-icon-180x180.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
+
+
+    = stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://www.google.com/recaptcha/api.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://code.highcharts.com/highcharts.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://code.highcharts.com/modules/exporting.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+
+
+
+  %body
+    %nav
+      .nav-wrapper.container
+        %a.brand-logo{:href => "/"}
+          Mousehunter Tracker
+
+        - if current_hunter
+          %ul.right.hide-on-med-and-down
+            %li= link_to 'Logout', logout_path, method: :delete
+
+    .container= yield
+
+    = flash_messages
+
+
+
+    %footer.page-footer
+      .container
+        Created by Chris Gooley, Logo by <a href="http://damienmason.com">Damien Mason</a>
+

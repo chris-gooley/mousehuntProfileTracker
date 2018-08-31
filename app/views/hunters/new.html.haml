@@ -1,0 +1,37 @@
+
+.row
+  .card-panel.session-card.col.m8.s12.offset-m2
+    %h4.center-align Sign up
+    = form_for @hunter, url: signup_path, method: :post, builder: StandardFormBuilder, html: { id: 'signup-form' } do |form|
+      = render partial: 'layouts/error_messages', locals: { errors: form.object ? form.object.errors : [] }
+
+      .input-field
+        = form.text_field :email
+        = form.label :email, class: form.object ? 'active' : ''
+        We will never sell your email address, this is only used if you forget your password and need to reset it.
+      .input-field
+        = form.text_field :name
+        = form.label :name, class: form.object ? 'active' : ''
+
+      .input-field
+        = form.password_field :password
+        = form.label :password
+
+      .input-field
+        = form.password_field :password_confirmation
+        = form.label :password_confirmation
+
+      .input-field
+        = form.text_field :profile_id
+        = form.label :profile_id, "Mousehunt Profile ID", class: form.object ? 'active' : ''
+        Get your profile ID by clicking on the Mousehunt shield and copy the snuid number from the address bar.
+        %br
+        eg. The profile ID for https://www.mousehuntgame.com/profile.php?snuid=123456789 would be 123456789
+        %br
+
+      .input-field= recaptcha_tags
+
+      = submit_tag :submit, class: 'btn right'
+    %br.clearfix
+    %br
+

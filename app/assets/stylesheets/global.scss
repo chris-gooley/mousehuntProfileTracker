@@ -1,0 +1,57 @@
+html,body{
+  background-color: $bg-grey;
+  color: white;
+}
+
+.text-highlight {
+  color: $primary-color;
+}
+nav{
+  background-color: $primary-color;
+  color: $bg-grey;
+  .brand-logo, ul li a{
+    color: $bg-grey;
+  }
+  .brand-logo{
+    background: transparent image-url('logo.png') no-repeat center left;
+    background-size: 50px 50px;
+    padding-left: 55px;
+  }
+}
+
+table{
+  &.striped > tbody > tr:nth-child(odd){
+    background-color: $highlight-grey;
+  }
+
+  tbody tr{
+    td { padding: 5px; }
+  }
+}
+
+
+dl{
+  dt,dd{
+    display: block;
+    float: left;
+  }
+  dt{
+    clear:left;
+    font-weight: bold;
+    min-width: 120px;
+  }
+  dd{
+    margin-left: 0;
+  }
+}
+
+
+footer.page-footer{
+  background-color: $highlight-grey;
+  color: white;
+  padding-bottom: 20px;
+  a{
+    color: white;
+    text-decoration: underline;
+  }
+}

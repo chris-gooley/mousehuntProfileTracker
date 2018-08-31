@@ -1,0 +1,26 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+@import "jquery-ui";
+@import "materialize/components/color";
+
+$bg-grey: color('grey', 'darken-3');
+$highlight-grey: color('grey', 'darken-4');
+$primary-color: color('yellow', 'darken-2') !default;
+$secondary-color: color('yellow', 'darken-2') !default; // color('blue','darken-2') !default;
+$tabs-bg-color: $bg_grey !default;
+
+@import "materialize";
+@import "global";
+@import "sessions";
+@import "hunters";
