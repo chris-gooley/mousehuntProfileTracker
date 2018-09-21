@@ -83,19 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
   config.action_mailer.default_url_options = { :host => 'mousehunter-tracker.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "mail.mousehunter-tracker.com",
-    :user_name => "postmaster@mail.mousehunter-tracker.com",
-    :password => "450a78a935372782e555976c52648354",
-    :enable_starttls_auto => true
-  }
+  config.action_mailer.delivery_method = :sendmail
 
 
 end

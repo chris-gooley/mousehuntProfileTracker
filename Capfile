@@ -5,7 +5,9 @@ require "capistrano/rails/assets"
 require "capistrano/rails/migrations"
 require 'capistrano/rails/console'
 require "capistrano/passenger"
+require "whenever/capistrano"
 require 'rollbar/capistrano3'
+require 'capistrano-db-tasks'
 
 # Include tasks from other gems included in your Gemfile
 #
